@@ -52,6 +52,11 @@ pipx ensurepath
 pipx install --editable .
 
 ```
+### En caso de tener problemas con el path
+```bash
+githubScraper$ pipx install --editable . installed package github-repo-scraper-cli 0.1.0, installed using Python 3.12.3 These apps are now globally available - ghclone ⚠️ Note: '/home/davo/.local/bin' is not on your PATH environment variable. These apps will not be globally accessible until your PATH is updated. Run pipx ensurepath to automatically add it, or manually modify your PATH in your shell's config file (i.e. ~/.bashrc). done! ✨ 🌟 ✨
+```
+Debemos seguir los siguientes pasos para agregarlo
 * Añadir ruta al path
 
 ```bash

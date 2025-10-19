@@ -5,7 +5,7 @@ import pyperclip
 from bs4 import BeautifulSoup
 from requests.exceptions import RequestException
 
-def repo_scraper():
+def main():
     gitUser = input("Ingresa el nombre de usuario de Github:")
     url = f"https://github.com/{gitUser}?tab=repositories"
     try:
@@ -33,6 +33,3 @@ def repo_scraper():
         sys.exit(1)
     except Exception as e:
         print(f"Error inesperado{e}")
-
-if __name__ == "__main__":
-    repo_scraper()

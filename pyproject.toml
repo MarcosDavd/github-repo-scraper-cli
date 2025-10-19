@@ -14,4 +14,4 @@ dependencies = [
 ]
 
 [project.scripts]
-ghclone = "github_scraper:repo_scraper"
+ghclone = "github_scraper.repo_scraper:main"

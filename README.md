@@ -21,8 +21,31 @@ pip install PyQt4
 ```
 
 ## Instalacion 
-No es necesario clonar el repositorio. Podemos hacer uso del siguiente comando para instalar todo y simplemente hacer uso del comando `ghclone` desde la terminal.
+* Clonar el repositorio
+    * HTTPS
+    ```bash
+    git clone https://github.com/MarcosDavd/github-repo-scraper-cli.git
+    ```
+    * SSH
+    ```bash
+    git clone git@github.com:MarcosDavd/github-repo-scraper-cli.git 
+    ```
+* Moverse a la carpeta del repositorio
+```bash 
+cd github-repo-scraper-cli
+```
+* Abrir una terminal, crear el entorno virtual y activarlo
+
+    * Crear el entorno virtual
+    ```bash 
+        python3 -m venv ghclonevenv
+    ```
+    * Activar el entorno virtual
+    ```bash
+        source ghclone-venv/bin/activate
+    ```
+* Instalar en modo editable
 
 ```bash
-pip install git+https://github.com/MarcosDavd/github-repo-scraper.git
+pip install -e .
 ```

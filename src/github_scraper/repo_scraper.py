@@ -4,6 +4,7 @@ import pyperclip
 
 from bs4 import BeautifulSoup
 from requests.exceptions import RequestException
+from pyperclip import PyperclipException
 
 def main():
     gitUser = input("Ingresa el nombre de usuario de Github:")
@@ -19,17 +20,20 @@ def main():
         list=[]
         for item in repo_list:
             href=item.get('href')
-            print(f"{i} repositorio: {href}")
+            print(f"--{i} repositorio: {href}")
             ssh = f"git@github.com:{href}.git"
             #https = f"https://github.com{href}.git"
             i=i+1
             list.append(ssh)
-        num = input("Ingresa el numero de repositorio para obetener el SSH :")
+        num = input(" Ingresa el numero de repositorio para obetener el SSH : ")
         command = f"git clone {list[int(num)]}"
         pyperclip.copy(command)
-        print("El comando se copio al portapapeles !!")
+        print(" Copiado al portapapeles ✅ !!")
     except RequestException as e:
-        print(f"Error de peticion :{e}")
+        print(f" ❌ Error de peticion  :{e}")
         sys.exit(1)
     except Exception as e:
-        print(f"Error inesperado{e}")
+        print(f" ❌ Error inesperado{e}")
+    except PyperclipException:
+        print("No se encontro ninguna herramienta de copy paste")
+        print(command)

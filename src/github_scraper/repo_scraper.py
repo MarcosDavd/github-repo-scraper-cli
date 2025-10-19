@@ -27,13 +27,14 @@ def main():
             list.append(ssh)
         num = input(" Ingresa el numero de repositorio para obetener el SSH : ")
         command = f"git clone {list[int(num)]}"
-        pyperclip.copy(command)
-        print(" Copiado al portapapeles ✅ !!")
+        try:
+            pyperclip.copy(command)
+            print(" Copiado al portapapeles ✅ !!")
+        except PyperclipException:
+            print("SSH "+command)
+            print("⚠️ No se encontro ninguna herramienta de copy paste")
     except RequestException as e:
         print(f" ❌ Error de peticion  :{e}")
         sys.exit(1)
     except Exception as e:
         print(f" ❌ Error inesperado{e}")
-    except PyperclipException:
-        print("No se encontro ninguna herramienta de copy paste")
-        print(command)

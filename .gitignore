@@ -1,0 +1,46 @@
+gitscraper/
+
+venv/
+env/
+/bin/
+/include/
+/lib/
+/lib64/
+__pycache__/
+
+# Archivos de bytecode (clases compiladas)
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de metadatos de Pytest o coverage
+.pytest_cache/
+.coverage
+
+# Archivos de caché del intérprete y build
+dist/
+build/
+*.egg-info/
+.tox/
+
+# Archivos de PyInstaller/Nuitka
+*.spec
+
+# Excluye los archivos que contienen datos extraídos (ej. CSV, JSON, DB)
+*.csv
+*.json
+*.xlsx
+*.sqlite
+data/  # Si almacenas los datos en una carpeta 'data/'
+
+# Excluye archivos de configuración con credenciales o claves API
+config.ini
+.env
+settings.py  # Si contiene secretos
+secrets.py
+*.key
+*.pem
+
+.DS_Store
+
+Thumbs.db

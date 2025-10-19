@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "github-repo-scraper-cli"
+version = "0.1.0"
+description = "Herramienta CLI para listar repositorios de GitHub y copiar comandos git clone (SSH)."
+readme = "README.md"
+dependencies = [
+    "requests",
+    "beautifulsoup4",
+    "pyperclip",
+]
+
+[project.scripts]
+ghclone = "github_scraper:repo_scraper"

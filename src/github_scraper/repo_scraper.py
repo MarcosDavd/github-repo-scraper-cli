@@ -7,7 +7,7 @@ from requests.exceptions import RequestException
 from pyperclip import PyperclipException
 
 def main():
-    gitUser = input("Ingresa el nombre de usuario de Github:")
+    gitUser = input("🔹 Ingresa el nombre de usuario de Github:")
     url = f"https://github.com/{gitUser}?tab=repositories"
     try:
         repos = requests.get(url)

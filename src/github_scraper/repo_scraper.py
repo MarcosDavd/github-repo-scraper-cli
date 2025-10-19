@@ -7,7 +7,7 @@ from requests.exceptions import RequestException
 from pyperclip import PyperclipException
 
 def main():
-    gitUser = input("🔹 Ingresa el nombre de usuario de Github:")
+    gitUser = input("🔹 Ingresa el nombre de usuario de Github : ")
     url = f"https://github.com/{gitUser}?tab=repositories"
     try:
         repos = requests.get(url)
@@ -18,9 +18,8 @@ def main():
         if not repo_list:
             print(f"⚠️  No se encontraron repositorios para el usuario '{gitUser}'")
             return
-        print("Repositorios de "+gitUser)
         i=0
-        print("\n=== Repositorios encontrados ===")
+        print("\n==== Repositorios encontrados =====")
         list=[]
         for item in repo_list:
             href=item.get('href')
@@ -34,9 +33,9 @@ def main():
         command = f"git clone {list[int(num)]}"
         try:
             pyperclip.copy(command)
-            print(f"✅ Comando copiado al portapapeles:\n{command}")
+            print(f"\n ✅ Comando copiado al portapapeles:\n{command}")
         except PyperclipException:
-            print(f"⚠️ No se encontró ninguna herramienta de copy/paste. Usa el comando manualmente:\n{command}")
+            print(f"\n ⚠️  No se encontró ninguna herramienta de copy/paste. Usa el comando manualmente:\n{command}")
     except RequestException as e:
         print(f" ❌ Error de peticion  :{e}")
         sys.exit(1)

@@ -40,16 +40,43 @@ cd github-repo-scraper-cli
 ```
 * Instalar pipx
 ```bash
-python3 -m pip install --user pipx
+sudo apt install pipx
 ```
+Esto es en el directorio del proyecto
 ```bash
-python3 -m pipx ensurepath
+pipx ensurepath
 ```
 * Instalar en modo editable
 
 ```bash
 pipx install --editable .
 
+```
+* Añadir ruta al path
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+```
+En caso de usar Zsh
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+```
+* Aplicar cambios
+```bash
+source ~/.bashrc
+```
+En caso de usar Zsh
+```bash
+source ~/.zshrc
+```
+* por ultimo verificamos
+```bash
+which ghclone
+```
+Deberiamos tener una salida tipo
+```bash
+/home/host/.local/bin/ghclone
 ```
 ## Como usar
 Una vez instalado podemos usar el comando `ghclone` desde la terminal.

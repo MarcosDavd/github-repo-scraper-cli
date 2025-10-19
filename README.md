@@ -19,8 +19,12 @@ pip install gtk
 ```bash
 pip install PyQt4
 ```
+## Instalacion rapida(no git clone)
+```bash 
+pipx install --editable git+https://github.com/MarcosDavd/github-repo-scraper-cli.git
+```
 
-## Instalacion 
+## Instalacion paso a paso(recomendable)
 * Clonar el repositorio
     * HTTPS
     ```bash
@@ -34,18 +38,23 @@ pip install PyQt4
 ```bash 
 cd github-repo-scraper-cli
 ```
-* Abrir una terminal, crear el entorno virtual y activarlo
-
-    * Crear el entorno virtual
-    ```bash 
-        python3 -m venv ghclonevenv
-    ```
-    * Activar el entorno virtual
-    ```bash
-        source ghclone-venv/bin/activate
-    ```
+* Instalar pipx
+```bash
+python3 -m pip install --user pipx
+```
+```bash
+python3 -m pipx ensurepath
+```
 * Instalar en modo editable
 
 ```bash
-pip install -e .
+pipx install --editable .
+
 ```
+## Como usar
+Una vez instalado podemos usar el comando `ghclone` desde la terminal.
+* Comando
+```bash
+ghclone
+```
+

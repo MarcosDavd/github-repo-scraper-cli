@@ -15,8 +15,12 @@ def main():
         repos.raise_for_status()
         soup = BeautifulSoup(repos.text,'html.parser')
         repo_list = soup.select('ul li div div h3 a')  
+        if not repo_list:
+            print(f"⚠️  No se encontraron repositorios para el usuario '{gitUser}'")
+            return
         print("Repositorios de "+gitUser)
         i=0
+        print("\n=== Repositorios encontrados ===")
         list=[]
         for item in repo_list:
             href=item.get('href')
@@ -25,14 +29,14 @@ def main():
             #https = f"https://github.com{href}.git"
             i=i+1
             list.append(ssh)
-        num = input(" Ingresa el numero de repositorio para obetener el SSH : ")
+        print("===============================\n")
+        num = input("🔹 Ingresa el número del repositorio para obtener el SSH: ")
         command = f"git clone {list[int(num)]}"
         try:
             pyperclip.copy(command)
-            print(" Copiado al portapapeles ✅ !!")
+            print(f"✅ Comando copiado al portapapeles:\n{command}")
         except PyperclipException:
-            print("SSH "+command)
-            print("⚠️ No se encontro ninguna herramienta de copy paste")
+            print(f"⚠️ No se encontró ninguna herramienta de copy/paste. Usa el comando manualmente:\n{command}")
     except RequestException as e:
         print(f" ❌ Error de peticion  :{e}")
         sys.exit(1)
